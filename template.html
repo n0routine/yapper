@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="robots" content="noindex, nofollow">
+        <title>{{ printf "%s" .title }}</title>
+    </head>
+
+    <body>
+
+        <h1>{{ printf "%s" .title }}</h1>
+
+        <div>
+{{ $para := .para }}
+{{ range (len .para) }}
+            {{ printf "%s" (index $para .) }}
+            <br><br>
+{{ end }}
+        </div>
+
+        <div>
+            <h2>More food for thought:</h2>
+            <ul>
+{{ $ref := .ref }}
+{{ $refl := .refl }}
+{{ range (len .ref) }}
+                <li><a href="./{{ printf "%s" (index $refl .) }}/">{{ printf "%s" (index $ref .) }}...</a></li>
+{{ end }}
+            </ul>
+        </div>
+
+        <div>
+            <h2>And always hold in your mind:</h2>
+            {{ printf "%s" .poison }}
+        </div>
+
+        <h3>Garbage for the garbage king!</h3>
+
+    </body>
+
+</html>
